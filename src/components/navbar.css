@@ -1,0 +1,26 @@
+.dc-navbar {
+  position: absolute;      /* Puts it on top of the hero */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0);  /* Transparent background */
+  color: white;
+  z-index: 10;                    /* Makes sure it sits above the hero */
+  backdrop-filter: blur(2px);     /* Optional: adds a frosted-glass effect */
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-icons i {
+  margin-left: 1rem;
+  cursor: pointer;
+}

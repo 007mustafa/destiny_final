@@ -1,0 +1,79 @@
+.dc-hero {
+  position: relative;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+.fade {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-search {
+  padding: 12px 20px;
+  padding-left: 40px; /* space for icon */
+  width: 280px;
+  max-width: 90%;
+  font-size: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(240, 200, 8, 0.3);
+}
+
+.hero-search::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-search:focus {
+  border: 2px solid #f0c808;
+  box-shadow: 0 0 15px rgba(240, 200, 8, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #f0c808;
+  font-size: 18px;
+  pointer-events: none;
+}
+

@@ -3,19 +3,19 @@ import './trending.css'; // Ensure this CSS file is inside the src/components fo
 
 const characters = [
   {
-    name: 'Superman',
+    name: 'Destiny',
     description: 'Man of Steel and symbol of hope.',
-    image: '/images/superma.jpg', // stored in public/images
+    image: '/images/img1.jpeg', // stored in public/images
   },
   {
     name: 'Batman',
     description: 'The Dark Knight of Gotham.',
-    image: '/images/Superman.jpg', // stored in public/images
+    image: '/images/img2.jpeg', // stored in public/images
   },
   {
     name: 'Wonder Woman',
     description: 'Amazonian warrior princess.',
-    image: '/images/superman2.jpg', // stored in public/images
+    image: '/images/img1.jpeg', // stored in public/images
   },
 ];
 
@@ -24,7 +24,7 @@ export default function TrendingCharacters() {
     <section
       className="trending-section"
       style={{
-        backgroundImage: `url('/images/dc.jpg')`, // background in public/images
+        backgroundImage: `url('/images/sky.jpg')`, // background in public/images
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

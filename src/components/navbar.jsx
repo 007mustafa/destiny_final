@@ -4,7 +4,7 @@ import '../components/navbar.css';
 export default function Navbar() {
   return (
     <nav className="dc-navbar">
-      <div className="logo">DC</div>
+      <div className="logo">DESTINY</div>
       <ul className="nav-links">
         <li>Comics</li>
         <li>Movies</li>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../components/hero.css';
-
+/*
 const images = [
-  '/images/superma.jpg',
-  '/images/superman2.jpg',
-  '/images/Superman.jpg',
+  '/images/img1.jpeg',
+  '/images/img2.jpeg',
+  '/images/BANNER.png',
 ];
 
 export default function Hero() {
@@ -26,9 +26,35 @@ export default function Hero() {
     >
       <div className="overlay" />
       <div className="hero-content">
-        <h1>Characters</h1>
-        <input type="text" placeholder="Search Characters" className="hero-search" />
-      </div>
+  <h1>Characters</h1>
+
+  <div className="hero-search-container">
+    <input
+      type="text"
+      placeholder="Search for your hero..."
+      className="hero-search"
+    />
+    <span className="search-icon">🔍</span>
+  </div>
+</div>
+
     </header>
   );
-}
+}*/
+
+
+const Hero = () => {
+  return (
+    <section className="hero-section">
+      <img src="/images/bg4.jpg" alt="Hero" className="hero-image" />
+      <div className="hero-content">
+        <h1>DESTINY NOCTURNE</h1>
+        <p>Unleash the darkness within</p>
+        <button>Enter the Realm</button>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+

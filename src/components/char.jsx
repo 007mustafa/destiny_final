@@ -6,26 +6,36 @@ import './char.css'; // custom CSS for styling
 const universeData = [
   {
     title: 'DC Universe',
-    image: '/images/dc.jpg',
+    image: '/images/img1.jpeg',
   },
   {
     title: 'Marvel Universe',
-    image: '/images/superma.jpg',
+    image: '/images/img2.jpeg',
   },
   {
     title: 'Anime Universe',
-    image: '/images/Superman.jpg',
+    image: '/images/sky.jpg',
   },
   {
     title: 'Fantasy World',
-    image: '/images/superman2.jpg',
+    image: '/images/sky2.jpg',
   },
   {
     title: 'Game Universe',
-    image: '/images/dc.jpg',
+    image: '/images/img2.jpeg',
   },
 ];
-
+ <section
+      className="trending-section"
+      style={{
+        backgroundImage: `url('/images/sky.jpg')`, // background in public/images
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '60px 0',
+      }}
+    ></section>
+    
 const CharacterUniverse = () => {
   const settings = {
     dots: true,

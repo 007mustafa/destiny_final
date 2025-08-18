@@ -1,4 +1,4 @@
-.dc-hero {
+/*.dc-hero {
   position: relative;
   height: 80vh;
   background-size: cover;
@@ -43,7 +43,7 @@
 
 .hero-search {
   padding: 12px 20px;
-  padding-left: 40px; /* space for icon */
+  padding-left: 40px; 
   width: 280px;
   max-width: 90%;
   font-size: 16px;
@@ -75,5 +75,87 @@
   color: #f0c808;
   font-size: 18px;
   pointer-events: none;
+}*/
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.651); /* 👈 Dark overlay */
+  z-index: 0; /* Keeps it behind content */
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  background-color: #000000;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Content stays above overlay */
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 10px rgb(77, 1, 80);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 10px rgb(77, 1, 80);
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-content button {
+  background: linear-gradient(45deg, #6a0dad, #000); /* purple to black gradient */
+  color: white;
+  border: 2px solid #6a0dad;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.6);
+}
+
+.hero-content button:hover {
+  background: #000;
+  border-color: #6a0dad;
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.9);
+  color: #cfa3ff;
+}
+
+
+.hero-content button:hover {
+  background: #000000;
+}

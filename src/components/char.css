@@ -1,6 +1,6 @@
 .universe-section {
   padding: 60px 40px;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 50%, #3a3a3a 100%);
+  background: linear-gradient(135deg, #000000 0%, #301028 50%, #4d0049 100%);
   border-top: 2px solid #888;
   border-bottom: 2px solid #888;
   box-shadow: inset 0 0 30px #88888820;
@@ -12,22 +12,24 @@
   text-align: center;
   margin-bottom: 40px;
   font-weight: 700;
-  color: #e0e0e0;
-  font-family: 'Orbitron', sans-serif; /* Futuristic font */
+  color: #000000; /* Light purple */
+  font-family: 'Orbitron', sans-serif;
   letter-spacing: 2px;
   text-shadow:
-    0 0 10px rgba(255, 255, 255, 0.3),
-    0 0 20px rgba(192, 192, 192, 0.4),
-    0 0 40px rgba(128, 128, 128, 0.2);
+    0 0 8px #740391,         /* Outer glow - medium purple */
+    0 0 16px #450164,        /* Deeper purple core */
+    0 0 24px #270142,        /* Indigo (blackish purple) */
+    0 0 32px #000;           /* Subtle black depth */
   transition: transform 0.3s ease-in-out;
 }
+
 
 .universe-title:hover {
   transform: scale(1.05);
   text-shadow:
-    0 0 15px rgba(255, 255, 255, 0.5),
-    0 0 25px rgba(192, 192, 192, 0.6),
-    0 0 45px rgba(128, 128, 128, 0.3);
+    0 0 15px rgba(247, 14, 255, 0.5),
+    0 0 25px rgba(158, 2, 163, 0.6),
+    0 0 45px rgba(104, 1, 117, 0.3);
 }
 
 

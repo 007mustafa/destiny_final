@@ -1,0 +1,346 @@
+/* Video Intro Container */
+.video-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0517, #1a0b2e, #2d1b69, #1a0b2e, #0a0517);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.video-intro.fade-out {
+  opacity: 0;
+  transform: scale(1.1) translateY(-30px);
+  filter: blur(15px);
+}
+
+/* Animated Background Elements */
+.intro-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  /* Ensure background elements don't interfere with video */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.twinkling-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+    radial-gradient(2px 2px at 40px 70px, #ffffff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+    radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
+    radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+  opacity: 0.3;
+  /* Ensure stars don't create shiny effects */
+  filter: none;
+}
+
+.moving-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(3px 3px at 50px 50px, #ffffff, transparent),
+    radial-gradient(2px 2px at 100px 100px, #ffffff, transparent),
+    radial-gradient(1px 1px at 150px 150px, #ffffff, transparent),
+    radial-gradient(2px 2px at 200px 200px, #ffffff, transparent),
+    radial-gradient(1px 1px at 250px 250px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: movingDots 8s linear infinite;
+  opacity: 0.2;
+  /* Ensure dots don't create shiny effects */
+  filter: none;
+}
+
+.random-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(4px 4px at 30px 60px, #ffffff, transparent),
+    radial-gradient(3px 3px at 80px 120px, #ffffff, transparent),
+    radial-gradient(2px 2px at 120px 180px, #ffffff, transparent),
+    radial-gradient(3px 3px at 180px 240px, #ffffff, transparent),
+    radial-gradient(2px 2px at 240px 300px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: randomGlow 6s ease-in-out infinite;
+  opacity: 0.4;
+  /* Ensure glow doesn't create shiny effects */
+  filter: none;
+}
+
+/* Video Container */
+.video-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  height: 65%;
+  max-height: 500px;
+  z-index: 10;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+  background: transparent;
+  margin-top: 80px;
+  /* Ensure no unwanted effects */
+  filter: none;
+  backdrop-filter: none;
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: transparent;
+  filter: none !important; /* Ensure video is never blurred */
+  /* Remove any potential shiny effects */
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* Video Overlay */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Skip Button - Inside video container, right bottom */
+.skip-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 20;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skip-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.skip-button:active {
+  transform: translateY(0);
+}
+
+/* Loading Text */
+.loading-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Error Text */
+.error-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+}
+
+/* Intro Title - Now at the top, above video container */
+.intro-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 20;
+  pointer-events: none;
+  width: 100%;
+}
+
+.intro-title h1 {
+  font-size: 3rem;
+  margin: 0 0 15px 0;
+  color: #ffffff;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(138, 43, 226, 0.8),
+    0 0 60px rgba(138, 43, 226, 0.6),
+    0 0 80px rgba(153, 50, 204, 0.4);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.intro-title p {
+  font-size: 1.4rem;
+  margin: 0;
+  opacity: 0.9;
+  color: #ffffff;
+  text-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(138, 43, 226, 0.6),
+    0 0 45px rgba(255, 255, 255, 0.4);
+  animation: subtitleGlow 4s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes movingDots {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100px); }
+}
+
+@keyframes randomGlow {
+  0%, 100% { opacity: 0.4; filter: brightness(1); }
+  25% { opacity: 0.7; filter: brightness(1.5); }
+  50% { opacity: 0.5; filter: brightness(1.2); }
+  75% { opacity: 0.8; filter: brightness(1.8); }
+}
+
+@keyframes titleGlow {
+  from { 
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.9),
+      0 0 40px rgba(138, 43, 226, 0.8),
+      0 0 60px rgba(138, 43, 226, 0.6),
+      0 0 80px rgba(153, 50, 204, 0.4);
+  }
+  to { 
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 1),
+      0 0 60px rgba(138, 43, 226, 0.9),
+      0 0 90px rgba(138, 43, 226, 0.7),
+      0 0 120px rgba(153, 50, 204, 0.5);
+  }
+}
+
+@keyframes subtitleGlow {
+  from { 
+    text-shadow: 
+      0 0 15px rgba(255, 255, 255, 0.8),
+      0 0 30px rgba(138, 43, 226, 0.6),
+      0 0 45px rgba(255, 255, 255, 0.4);
+  }
+  to { 
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 1),
+      0 0 40px rgba(138, 43, 226, 0.8),
+      0 0 60px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-container {
+    width: 85%;
+    height: 55%;
+    margin-top: 60px;
+  }
+  
+  .intro-title {
+    top: 40px;
+  }
+  
+  .intro-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .intro-title p {
+    font-size: 1.2rem;
+  }
+  
+  .skip-button {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    width: 95%;
+    height: 50%;
+    margin-top: 50px;
+  }
+  
+  .intro-title {
+    top: 30px;
+  }
+  
+  .intro-title h1 {
+    font-size: 2rem;
+  }
+  
+  .intro-title p {
+    font-size: 1rem;
+  }
+  
+  .skip-button {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 0.7rem;
+  }
+}

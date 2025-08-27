@@ -1,0 +1,353 @@
+/* Movie Credits Container */
+.movie-credits-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0517, #1a0b2e, #2d1b69, #1a0b2e, #0a0517);
+  position: relative;
+  overflow: hidden;
+  margin-top: -10px; /* Connect with GSAP3DSlider background */
+}
+
+/* Animated Background Elements */
+.credits-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Twinkling Stars */
+.twinkling-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+}
+
+.twinkling-stars::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 
+    20px 30px 0 #ffffff,
+    40px 70px 0 #ffffff,
+    90px 40px 0 #ffffff,
+    130px 80px 0 #ffffff,
+    160px 30px 0 #ffffff,
+    200px 60px 0 #ffffff,
+    250px 20px 0 #ffffff,
+    300px 90px 0 #ffffff,
+    350px 50px 0 #ffffff,
+    400px 80px 0 #ffffff,
+    450px 30px 0 #ffffff,
+    500px 70px 0 #ffffff,
+    550px 40px 0 #ffffff,
+    600px 90px 0 #ffffff,
+    650px 20px 0 #ffffff,
+    700px 60px 0 #ffffff,
+    750px 80px 0 #ffffff,
+    800px 30px 0 #ffffff,
+    850px 70px 0 #ffffff,
+    900px 50px 0 #ffffff;
+  animation: twinkle 4s ease-in-out infinite alternate;
+  opacity: 0.3;
+}
+
+/* Moving Dots (Falling Stars replacement) */
+.moving-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 2;
+}
+
+.moving-dots::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100px; /* Start off-screen */
+  width: 200px; /* Width of the dot stream */
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: movingDots 15s linear infinite;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+/* Random Glow for stars */
+.random-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.random-glow::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  animation: randomGlow 5s infinite alternate,
+             moveStar1 10s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.random-glow::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  animation: randomGlow 7s infinite alternate,
+             moveStar2 12s linear infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Left Side - Video Section */
+.video-section {
+  flex: 1.5; /* Give video section much more space */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  z-index: 10;
+  /* Ensure clean video display */
+  filter: none;
+  backdrop-filter: none;
+}
+
+.credits-video {
+  width: 100%;
+  max-width: 900px; /* Increased from 800px */
+  height: 480px; /* Same height as credits container */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+  background: #000;
+  /* Ensure video is clean */
+  filter: none;
+  backdrop-filter: none;
+}
+
+/* Right Side - Credits Section */
+.credits-section {
+  flex: 0.7; /* Give credits section more space than 0.5 */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.credits-container {
+  width: 100%;
+  height: 400px; /* Same height as video */
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.credits-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  color: white;
+  text-align: center;
+  animation: scrollCredits 80s linear infinite; /* Slower scrolling for bigger container */
+  animation-delay: 1s; /* Reduced delay */
+}
+
+.credits-content h2 {
+  font-size: 2rem; /* Decreased from 2.5rem */
+  margin: 0 0 20px 0; /* Reduced margin */
+  color: #ffffff;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(138, 43, 226, 0.8),
+    0 0 60px rgba(138, 43, 226, 0.6);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.credit-category {
+  margin-bottom: 50px; /* Increased spacing to prevent overlap */
+}
+
+.credit-category h3 {
+  font-size: 1.5rem;
+  margin: 0 0 25px 0; /* Increased margin */
+  color: #8a2be2;
+  text-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+  font-weight: 600;
+}
+
+.credit-category p {
+  font-size: 1rem;
+  margin: 12px 0; /* Increased margin */
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  line-height: 1.8; /* Increased line height for better separation */
+}
+
+/* Scrolling Animation */
+@keyframes scrollCredits {
+  0% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Title Glow Animation */
+@keyframes titleGlow {
+  from {
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.9),
+      0 0 40px rgba(138, 43, 226, 0.8),
+      0 0 60px rgba(138, 43, 226, 0.6);
+  }
+  to {
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 1),
+      0 0 60px rgba(138, 43, 226, 0.9),
+      0 0 90px rgba(138, 43, 226, 0.7);
+  }
+}
+
+/* Background Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes move-twink-back {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+@keyframes movingDots {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100px); }
+}
+
+@keyframes randomGlow {
+  0%, 100% { opacity: 0.4; filter: brightness(1); }
+  25% { opacity: 0.7; filter: brightness(1.5); }
+  50% { opacity: 0.5; filter: brightness(1.2); }
+  75% { opacity: 0.8; filter: brightness(1.8); }
+}
+
+@keyframes moveStar1 {
+  0% { top: 10%; left: 20%; }
+  50% { top: 50%; left: 80%; }
+  100% { top: 90%; left: 40%; }
+}
+
+@keyframes moveStar2 {
+  0% { top: 80%; left: 10%; }
+  50% { top: 30%; left: 60%; }
+  100% { top: 70%; left: 90%; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .movie-credits-container {
+    flex-direction: column;
+  }
+  
+  .video-section,
+  .credits-section {
+    flex: none;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .credits-video {
+    max-width: 100%;
+    height: 450px; /* Same height as credits container */
+  }
+  
+  .credits-container {
+    height: 450px; /* Same height as video */
+  }
+}
+
+@media (max-width: 768px) {
+  .credits-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .credit-category h3 {
+    font-size: 1.3rem;
+  }
+  
+  .credit-category p {
+    font-size: 0.9rem;
+  }
+  
+  .credits-video {
+    height: 400px; /* Same height as credits container */
+  }
+  
+  .credits-container {
+    height: 400px; /* Same height as video */
+  }
+}
+
+@media (max-width: 480px) {
+  .video-section,
+  .credits-section {
+    padding: 15px;
+  }
+  
+  .credits-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .credit-category h3 {
+    font-size: 1.2rem;
+  }
+  
+  .credit-category p {
+    font-size: 0.8rem;
+  }
+  
+  .credits-video {
+    height: 370px; /* Same height as credits container */
+  }
+  
+  .credits-container {
+    height: 370px; /* Same height as video */
+  }
+}

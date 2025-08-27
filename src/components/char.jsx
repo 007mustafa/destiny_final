@@ -1,77 +1,120 @@
-// src/components/CharacterUniverse.jsx
-import React from 'react';
-import Slider from 'react-slick';
-import './char.css'; // custom CSS for styling
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
-const universeData = [
+import React from "react";
+import { FaYoutube, FaInstagram, FaTiktok, FaTwitch, FaGlobe, FaCloud } from "react-icons/fa";
+
+// Swiper imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+
+import "./char.css";
+
+const socialMediaData = [
   {
-    title: 'DC Universe',
-    image: '/images/img1.jpeg',
+    title: "Bluesky",
+    platform: "Bluesky",
+    link: "https://bsky.app/profile/did:plc:tdmjatp7aaxvqvxxyi6yxj7y",
+    icon: FaCloud,
+    color: "#0085FF",
+    description: "Follow me on Bluesky",
   },
   {
-    title: 'Marvel Universe',
-    image: '/images/img2.jpeg',
+    title: "YouTube",
+    platform: "YouTube",
+    link: "https://m.youtube.com/@DestinyNocturne",
+    icon: FaYoutube,
+    color: "#FF0000",
+    description: "Subscribe to my channel",
   },
   {
-    title: 'Anime Universe',
-    image: '/images/sky.jpg',
+    title: "Instagram",
+    platform: "Instagram",
+    link: "https://www.instagram.com/destinynocturne/",
+    icon: FaInstagram,
+    color: "#E4405F",
+    description: "Follow my journey",
   },
   {
-    title: 'Fantasy World',
-    image: '/images/sky2.jpg',
+    title: "TikTok",
+    platform: "TikTok",
+    link: "https://www.tiktok.com/@destinynocturne?_t=ZP-8z42evIAjug&_r=1",
+    icon: FaTiktok,
+    color: "#000000",
+    description: "Watch my videos",
   },
   {
-    title: 'Game Universe',
-    image: '/images/img2.jpeg',
+    title: "Twitch",
+    platform: "Twitch",
+    link: "https://www.twitch.tv/destinynocturnettv",
+    icon: FaTwitch,
+    color: "#9146FF",
+    description: "Join my streams",
+  },
+  {
+    title: "Destiny Nocturne",
+    platform: "Profile",
+    link: "https://bsky.app/profile/destinynocturne.bsky.social",
+    icon: FaGlobe,
+    color: "#8A2BE2",
+    description: "My main profile",
   },
 ];
- <section
-      className="trending-section"
-      style={{
-        backgroundImage: `url('/images/sky.jpg')`, // background in public/images
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '60px 0',
-      }}
-    ></section>
-    
-const CharacterUniverse = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
-      },
-    ],
+
+const Char = () => {
+  const handleCardClick = (link) => {
+    window.open(link, "_blank", "noopener,noreferrer");
   };
 
   return (
     <section className="universe-section">
-      <h2 className="universe-title">Explore Character Universes</h2>
-      <Slider {...settings}>
-        {universeData.map((universe, index) => (
-          <div key={index} className="universe-card">
-            <img src={universe.image} alt={universe.title} />
-            <div className="universe-overlay">
-              <h3>{universe.title}</h3>
-            </div>
-          </div>
-        ))}
-      </Slider>
+      <div className="universe-content">
+        <h2 className="universe-title">Connect With Me</h2>
+        <p className="universe-subtitle">Follow my journey across all platforms</p>
+
+        <div className="slider-container">
+        <Swiper
+  modules={[Autoplay]}  // no Navigation now
+  loop={true}
+  autoplay={{
+    delay: 4000,
+    disableOnInteraction: false,
+  }}
+  breakpoints={{
+    320: { slidesPerView: 1, spaceBetween: 15 }, // Mobile
+    768: { slidesPerView: 2, spaceBetween: 20 }, // Tablet
+    1024: { slidesPerView: 3, spaceBetween: 30 }, // Desktop
+  }}
+  className="custom-swiper"
+>
+
+            {socialMediaData.map((social, index) => {
+              const IconComponent = social.icon;
+              return (
+                <SwiperSlide key={index}>
+                  <div
+                    className="social-card"
+                    onClick={() => handleCardClick(social.link)}
+                    style={{ "--card-color": social.color }}
+                  >
+                    <div className="card-content">
+                      <div className="icon-container">
+                        <IconComponent className="social-icon" />
+                      </div>
+                      <h3 className="card-title">{social.title}</h3>
+                      <p className="card-description">{social.description}</p>
+                      <div className="platform-badge">{social.platform}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      </div>
     </section>
   );
 };
 
-export default CharacterUniverse;
+export default Char;

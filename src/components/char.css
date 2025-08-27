@@ -1,68 +1,200 @@
+/* ============================
+   Universe Section
+============================ */
 .universe-section {
-  padding: 60px 40px;
-  background: linear-gradient(135deg, #000000 0%, #301028 50%, #4d0049 100%);
-  border-top: 2px solid #888;
-  border-bottom: 2px solid #888;
-  box-shadow: inset 0 0 30px #88888820;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px 60px 20px;
+  background: linear-gradient(135deg, #0a0517, #1a0b2e, #2d1b69, #1a0b2e, #0a0517);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: -60px;
 }
 
+/* ============================
+   Content
+============================ */
+.universe-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
 
 .universe-title {
   font-size: 3.5rem;
-  text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(138, 43, 226, 0.8),
+    0 0 60px rgba(138, 43, 226, 0.6);
   font-weight: 700;
-  color: #000000; /* Light purple */
-  font-family: 'Orbitron', sans-serif;
-  letter-spacing: 2px;
-  text-shadow:
-    0 0 8px #740391,         /* Outer glow - medium purple */
-    0 0 16px #450164,        /* Deeper purple core */
-    0 0 24px #270142,        /* Indigo (blackish purple) */
-    0 0 32px #000;           /* Subtle black depth */
-  transition: transform 0.3s ease-in-out;
 }
 
-
-.universe-title:hover {
-  transform: scale(1.05);
-  text-shadow:
-    0 0 15px rgba(247, 14, 255, 0.5),
-    0 0 25px rgba(158, 2, 163, 0.6),
-    0 0 45px rgba(104, 1, 117, 0.3);
+.universe-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
+/* Swiper Container */
+.slider-container {
+  max-width: 1600px; /* Increased to show 5 cards */
+  margin: 0 auto;
+  overflow: visible !important;
+  padding: 10px 0;
+}
 
-.universe-card {
+/* ============================
+   Social Cards
+============================ */
+.social-card {
   position: relative;
-  border-radius: 14px;
+  height: 240px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(192, 192, 192, 0.2), 0 0 25px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 0 auto;
 }
 
-.universe-card:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25), 0 0 45px rgba(255, 255, 255, 0.1);
+.social-card:hover {
+  transform: translateY(-5px) scale(1.02) rotateX(5deg);
+  border-color: var(--card-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px var(--card-color),
+    inset 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
-.universe-card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  filter: grayscale(15%) contrast(1.1);
-}
-
-.universe-overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
-  color: #e0e0e0;
+.card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 20px 20px;
   text-align: center;
-  font-size: 1.6rem;
+  height: 100%;
+}
+
+.icon-container {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--card-color), rgba(138, 43, 226, 0.8));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px var(--card-color);
+  transition: all 0.3s ease;
+}
+
+.social-card:hover .icon-container {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px var(--card-color);
+}
+
+.social-icon {
+  font-size: 2.5rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.card-title {
+  font-size: 1.4rem;
   font-weight: 600;
-  text-shadow: 0 0 8px #ffffff44;
-  backdrop-filter: blur(2px);
+  color: white;
+  margin-bottom: 0px;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.card-description {
+  font-size: 0.85rem;
+  margin-bottom: 0px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.3;
+}
+
+.platform-badge {
+  background: linear-gradient(135deg, var(--card-color), rgba(138, 43, 226, 0.8));
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-card:hover .platform-badge {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================
+   Swiper Navigation (arrows)
+============================ */
+
+/* Ensure Swiper container allows overflow for arrows */
+.swiper {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.custom-swiper {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* ============================
+   Responsive
+============================ */
+@media (max-width: 1024px) {
+  .slider-container { 
+    max-width: 1200px; /* Adjusted for tablet */
+    padding: 0; 
+  }
+  .social-card {
+    width: 260px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container { 
+    max-width: 800px; /* Adjusted for mobile */
+    padding: 0 70px; 
+  }
+  .social-card {
+    width: 240px;
+    height: 220px;
+  }
+  .universe-title { font-size: 2.5rem; }
+  .universe-subtitle { font-size: 1.1rem; margin-bottom: 30px; }
+}
+
+@media (max-width: 480px) {
+  .slider-container { 
+    max-width: 500px; /* Adjusted for small mobile */
+    padding: 0 60px; 
+  }
+  .social-card {
+    width: 220px;
+    height: 200px;
+  }
+  .universe-title { font-size: 2rem; }
+  .universe-subtitle { font-size: 1rem; margin-bottom: 25px; }
 }

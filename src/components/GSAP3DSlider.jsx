@@ -2,18 +2,38 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import './GSAP3DSlider.css';
 
-const images = [
-  "/images/bg1.jpg",  
-  "/images/bg2.jpg",
-  "/images/bg3.jpg",
-  "/images/bg4.jpg",
-  "/images/dc.jpg",
+const slideData = [
+  {
+    image: "/images/bg1.jpg",
+    title: "Cosmic Adventure",
+    description: "Embark on an epic journey through the stars and discover the mysteries of the universe."
+  },
+  {
+    image: "/images/bg2.jpg", 
+    title: "Galactic Warriors",
+    description: "Join the battle for justice across distant galaxies with legendary heroes."
+  },
+  {
+    image: "/images/bg3.jpg",
+    title: "Space Odyssey",
+    description: "Explore uncharted territories and encounter alien civilizations beyond imagination."
+  },
+  {
+    image: "/images/bg4.jpg",
+    title: "Stellar Legends",
+    description: "Witness the rise of cosmic champions in this breathtaking space saga."
+  },
+  {
+    image: "/images/dc.jpg",
+    title: "Heroic Destiny",
+    description: "Unleash your inner hero and save the world from ultimate destruction."
+  },
 ];
 
 const Char = () => {
   const sliderRef = useRef(null);
   const [current, setCurrent] = useState(0);
-  const total = images.length;
+  const total = slideData.length;
   const autoplayRef = useRef(null);
 
   // GSAP animation for positioning
@@ -72,12 +92,17 @@ const Char = () => {
     <div className="char-container">
       <div className="random-glow"></div>
       <div className="char-slider" ref={sliderRef}>
-        {images.map((img, i) => (
+        {slideData.map((slide, i) => (
           <div
             key={i}
             className={`char-slide ${i === current ? "active" : ""}`}
-            style={{ backgroundImage: `url(${img})` }}
-          ></div>
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="slide-content">
+              <h3 className="slide-title">{slide.title}</h3>
+              <p className="slide-description">{slide.description}</p>
+            </div>
+          </div>
         ))}
       </div>
 

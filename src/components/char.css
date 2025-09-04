@@ -3,8 +3,6 @@
 ============================ */
 .universe-section {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   padding: 60px 20px 60px 20px;
   background: linear-gradient(135deg, #0a0517, #1a0b2e, #2d1b69, #1a0b2e, #0a0517);
   min-height: 100vh;

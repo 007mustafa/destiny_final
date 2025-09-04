@@ -32,12 +32,20 @@ function App() {
         <div className={`website-container ${showWebsite ? 'animate-in' : ''}`}>
           <Navbar />
           <Hero />
-          <ImageSlider />
+          <div id="about">
+            <ImageSlider />
+          </div>
           <VideoShowcase />
           <GSAP3DSlider />
-          <MovieCredits />
-          <Char />
-          <TrendingCharacters />
+          <div id="video">
+            <MovieCredits />
+          </div>
+          <div id="connect">
+            <Char />
+          </div>
+          <div id="trending">
+            <TrendingCharacters />
+          </div>
           <Footer />
         </div>
       )}

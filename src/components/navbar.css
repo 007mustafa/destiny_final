@@ -25,6 +25,21 @@
   list-style: none;
 }
 
+.nav-links li {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.nav-links li:hover {
+  background: rgba(138, 43, 226, 0.2);
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.8),
+               0 0 20px rgba(138, 43, 226, 0.6),
+               0 0 30px rgba(138, 43, 226, 0.4);
+}
+
 .nav-icons i {
   margin-left: 1rem;
   cursor: pointer;

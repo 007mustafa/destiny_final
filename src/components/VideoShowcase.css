@@ -1,8 +1,6 @@
 /* Video Showcase Container */
 .video-showcase-container {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   padding: 40px 20px;
   background: linear-gradient(135deg, #0a0517, #1a0b2e, #2d1b69, #1a0b2e, #0a0517);
   min-height: 100vh;
@@ -181,6 +179,8 @@
   gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 /* Left Side - GIF Container */

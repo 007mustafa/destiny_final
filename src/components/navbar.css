@@ -44,3 +44,44 @@
   margin-left: 1rem;
   cursor: pointer;
 }
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .dc-navbar {
+    padding: 5px 20px;
+    font-size: medium;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-links li {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dc-navbar {
+    padding: 5px 15px;
+    font-size: small;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nav-links {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-links li {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .nav-icons {
+    display: none; /* Hide icons on very small screens */
+  }
+}

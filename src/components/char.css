@@ -185,14 +185,51 @@
 }
 
 @media (max-width: 480px) {
+  .universe-section {
+    padding: 20px 10px;
+  }
+  
   .slider-container { 
-    max-width: 500px; /* Adjusted for small mobile */
-    padding: 0 60px; 
+    max-width: 100%;
+    padding: 0 20px; 
   }
   .social-card {
-    width: 220px;
-    height: 200px;
+    width: 200px;
+    height: 180px;
   }
-  .universe-title { font-size: 2rem; }
-  .universe-subtitle { font-size: 1rem; margin-bottom: 25px; }
+  .universe-title { 
+    font-size: 1.8rem; 
+    margin-bottom: 15px;
+  }
+  .universe-subtitle { 
+    font-size: 0.9rem; 
+    margin-bottom: 20px; 
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .icon-container {
+    margin-bottom: 10px;
+  }
+  
+  .social-icon {
+    font-size: 1.8rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .card-description {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .platform-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
 }

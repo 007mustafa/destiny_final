@@ -50,7 +50,6 @@ const Hero = () => {
       <div className="hero-content">
         <h1>DESTINY NOCTURNE</h1>
         <p>Unleash the darkness within</p>
-        <button>Enter the Realm</button>
       </div>
     </section>
   );

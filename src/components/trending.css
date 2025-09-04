@@ -84,3 +84,56 @@
 .character-card:hover .character-img {
   filter: brightness(1.1) drop-shadow(0 0 5px rgb(53, 53, 53));
 }
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .trending-overlay {
+    padding: 20px 15px;
+    min-height: 25vh;
+  }
+  
+  .trending-title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .character-grid {
+    gap: 20px;
+  }
+  
+  .character-card {
+    width: 200px;
+    padding: 15px;
+  }
+  
+  .character-img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trending-overlay {
+    padding: 15px 10px;
+    min-height: 20vh;
+  }
+  
+  .trending-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .character-grid {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .character-card {
+    width: 180px;
+    padding: 12px;
+  }
+  
+  .character-img {
+    height: 180px;
+  }
+}

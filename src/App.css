@@ -195,3 +195,34 @@ html {
     }
   }
 }
+
+/* Additional Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile for better performance */
+  .website-container.animate-in > * {
+    animation-duration: 0.6s;
+  }
+  
+  /* Optimize hover effects for touch devices */
+  .website-container.animate-in > *:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce animations on small screens */
+  .website-container.animate-in > * {
+    animation-duration: 0.4s;
+  }
+  
+  /* Disable complex animations on very small screens */
+  .website-container {
+    animation: none;
+  }
+  
+  .website-container.animate-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
